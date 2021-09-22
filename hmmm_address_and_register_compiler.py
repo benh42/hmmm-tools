@@ -74,6 +74,12 @@ def compile_hmmm(filename):
 
     new_file = open(f"{filename[:-16]}.hmmm", 'w')
     new_file.write(new_text)
+    print("SUCCESS!!!!")
 
-
-
+while True: 
+    file_dir = input("Input filepath to compile or type 'Q' to quit: ")
+    if file_dir[0] == "Q":
+        print("GOODBYE!!!")
+        break
+    compile_hmmm(filename=file_dir)
+    
