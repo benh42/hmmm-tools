@@ -6,8 +6,12 @@ If you are a student, do not use this for assignment unless given explicit permi
 Write your hmmm file following these rules:
     1) Instead of writing line numbers, write "NN". The compiler will see these and replace them with the appropriate number
     2) Under specific circumstances, if you program needs to jump from one address to another, write that address as "@whatever you want@" specific address names should be enclosed by the 'at' "@" symbol. Make sure to use this on the line being jumped to as well.
-    3) Instead of writing "r1" or "r15", write "$whatever you want$" register names should be enclosed by the dollar "$" symbol
+    3) Instead of writing "r1" or "r10", write "$whatever you want$" register names should be enclosed by the dollar "$" symbol
     4) There is one built in specific address: "@END@" this will always be set to the address immediately after the end of the code region. Trying to use this as a line number will be problematic, only use it as a reference.
+    5) There are three built in registers:
+        - $RETURN_VALUE$ = r13
+        - $RETURN_ADDRESS$ = r14
+        - $STACK$ = r15
 
 Example program syntax based on the online HMMM Simulator factorial example
 
@@ -68,6 +72,9 @@ def compile_hmmm(filename):
     new_text = "".join(edited_lines)
 
     addresses["@END@"] = f"{line_count:03}"
+    registers["$RETURN_VALUE$"] = "r13"
+    registers["$RETURN_ADDRESS$"] = "r14"
+    registers["$STACK$"] = "r15"
 
     for addr in addresses:
         new_text = re.sub(addr, addresses[addr], new_text)
