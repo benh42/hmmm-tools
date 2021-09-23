@@ -1,6 +1,8 @@
 import re
 
 '''
+If you are a student, do not use this for assignment unless given explicit permission
+
 Write your hmmm file following these rules:
     1) Instead of writing line numbers, write "NN". The compiler will see these and replace them with the appropriate number
     2) Under specific circumstances, if you program needs to jump from one address to another, write that address as "@whatever you want@" specific address names should be enclosed by the 'at' "@" symbol. Make sure to use this on the line being jumped to as well.
